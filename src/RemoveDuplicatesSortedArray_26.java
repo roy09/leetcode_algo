@@ -1,4 +1,4 @@
-public class RemoveDuplicatesSortedArray {
+public class RemoveDuplicatesSortedArray_26 {
     static public int removeDuplicates(int[] nums) {
         int temp = 0;
         int last = 0;
