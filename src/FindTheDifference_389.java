@@ -58,11 +58,36 @@ public class FindTheDifference_389 {
     } // accepted
 
 
+    static public char findTheDifference4(String s, String t) {
+
+        int[] arr = new int[26];
+        int len = s.length();
+        for(int i = 0; i < len; i++){
+            int indexS = s.charAt(i) - 'a';
+            int indexT = t.charAt(i) - 'a';
+            arr[indexS]++;
+            arr[indexT]--;
+        }
+        int lastOfT = t.charAt(len) - 'a';
+        arr[lastOfT]--;
+
+        char c = ' ';
+        for(int i = 0; i < 26; i++){
+            if(arr[i] == -1){
+                c = (char) ( i + 'a');
+            }
+        }
+        return c;
+    } // accepted
+
+
+
+
 
 
     public static void main(String[] args){
 
-        System.out.println(findTheDifference3("aa", "aaa"));
+        System.out.println(findTheDifference4("a", "aa"));
     }
 
 
