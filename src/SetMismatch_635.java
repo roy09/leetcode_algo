@@ -22,8 +22,25 @@ public class SetMismatch_635 {
         return data;
     }
 
+    static public int[] findErrorNums2(int[] nums) {
+        int [] data = new int[nums.length + 1];
+
+        for (int num: nums){
+            data[num] += 1;
+        }
+
+        for (int count = 1; count < data.length; count++){
+            if (data[count] == 0){
+                data[1] = count;
+            } else if (data[count] == 2) {
+                data[0] = count;
+            }
+        }
+        return new int[] {data[0], data[1]};
+    }
+
     public static void main(String[] args){
-        int[] data = findErrorNums(new int[] {1, 2, 2, 5, 4});
+        int[] data = findErrorNums2(new int[] {1, 2, 2, 5, 4});
         for (int s: data){
             System.out.println(s);
         }
